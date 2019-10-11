@@ -9,8 +9,9 @@ import {RpnRequest} from '../calculator/request';
 })
 export class CalcService {
 
-  baseUrl = 'http://localhost:8080/rpn/convert';
+  baseUrl = 'http://localhost:8080/api';
   rpnRequest: RpnRequest;
+
   constructor(private http: HttpClient) {
 
     this.rpnRequest = new RpnRequest();
@@ -18,6 +19,6 @@ export class CalcService {
 
   calculate(value: string): Observable<RpnResponse> {
     this.rpnRequest.inputData = value;
-    return this.http.post<RpnResponse>(this.baseUrl, this.rpnRequest);
+    return this.http.post<RpnResponse>(this.baseUrl + '/rpn/convert', this.rpnRequest);
   }
 }
