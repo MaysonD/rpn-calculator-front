@@ -1,0 +1,17 @@
+<div class="calculator">
+
+  <form #calcForm='ngForm' (ngSubmit)="onCalculate()" >
+  <input type="text" class="calculator-screen" [formControl]="expressionInput" />
+
+  <div class="calculator-keys">
+
+    <button type="button" class="all-clear" value="all-clear" (click)="onClear()">Clear</button>
+
+    <button type="submit" class="equal-sign" value="calculate">Calculate</button>
+
+  </div>
+
+  <input type="text" class="calculator-screen" [formControl]="expressionOutput" disabled />
+  <input type="text" class="calculator-screen"  [formControl]="expressionValue"  disabled />
+  </form>
+</div>
